@@ -14,6 +14,7 @@ body {
 
 .changingText {
   font-style: italic;
+  font-weight: 500;
 }
 
 .loopingText {
@@ -39,26 +40,26 @@ body {
   position: relative;
   width: 15px;
   height: 15px;
-  background: #35ffa8;
+  background: #bec6d1;
   margin: 0 4px;
   border-radius: 50%;
-  box-shadow: 0 0 0 10px #35ffa844, 0 0 50px #35ffa8, 0 0 100px #35ffa8;
+  box-shadow: 0 0 0 10px #bec6d144, 0 0 50px #bec6d1, 0 0 100px #bec6d1;
   animation: animate 15s linear infinite;
   animation-duration: calc(125s / var(--i));
   z-index: -1;
 }
 
 .burbuja:nth-child(even) {
-  background: #ff2d75;
-  box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+  background: #bec6d1;
+  box-shadow: 0 0 0 10px #bec6d144, 0 0 50px #bec6d1, 0 0 100px #bec6d1;
 }
 
 @keyframes animate {
   0% {
-    transform: translateY(250vh) scale(0);
+    transform: translateY(200vh) scale(0.2);
   }
   100% {
-    transform: translateY(-10vh) scale(1);
+    transform: translateY(-10vh) scale(0.2);
   }
 }
 
