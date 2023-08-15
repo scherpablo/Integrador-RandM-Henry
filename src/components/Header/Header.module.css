@@ -1,0 +1,12 @@
+.h1 {
+  display: block;
+  font-size: 60px;
+  margin: 0 auto;
+  text-align: center;
+  color: #a77efa;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 0 0 50px #fff;
+  /* margin-top: 10px; */
+}
+
+
