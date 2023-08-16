@@ -2,30 +2,38 @@ body {
   background-color: #11161f;
   margin-top: 0;
   padding: 10px;
-  /* overflow: hidden; */
+}
+
+.h1 {
+  display: block;
+  font-size: 60px;
+  margin: 0 auto;
+  text-align: center;
+  color: #a77efa;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .fixedText {
-  color: #a77efa;
-  font-size: 28px;
+  color: #bec6d1;
+  font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
 
 .changingText {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
+  color: #a77efa;
 }
 
 .loopingText {
   display: block;
   white-space: nowrap;
-  font-size: 22px;
+  font-size: 18px;
   margin: 0 auto;
   text-align: center;
-  color: #bec6d1;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 50px;
+  height: 20px;
   line-height: 50px;
 }
 
@@ -56,7 +64,7 @@ body {
 
 @keyframes animate {
   0% {
-    transform: translateY(200vh) scale(0.2);
+    transform: translateY(190vh) scale(0.2);
   }
   100% {
     transform: translateY(-10vh) scale(0.2);

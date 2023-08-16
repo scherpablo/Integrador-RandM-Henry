@@ -1,4 +1,4 @@
-const texts = ["Rick & Morty", "desarrollado con... ", "HTML", "CSS", "JavaScript", "React", " y Vite."];
+const texts = ["Rick & Morty.", "HTML.", "CSS.", "JavaScript.", "React.", "Vite."];
 const fixedText = "Proyecto Integrador";
 const fixedTextElement = document.querySelector(".fixedText");
 const changingTextElement = document.querySelector(".changingText");

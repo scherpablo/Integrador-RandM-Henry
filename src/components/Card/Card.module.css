@@ -2,8 +2,7 @@
   background-color: #1a222d;
   border: 1px solid #595f69;
   border-radius: 10px;
-  padding: 15px 20px;
-  margin: 40px 0;
+  padding: 10px 20px 15px 20px;
   overflow: hidden;
   -webkit-box-shadow: 10px 10px 5px 0px #595f69;
   -moz-box-shadow: 10px 10px 5px 0px #595f69;
@@ -17,6 +16,7 @@
   -webkit-box-shadow: 10px 10px 5px 0px #a77efa;
   -moz-box-shadow: 10px 10px 5px 0px #a77efa;
   box-shadow: 10px 10px 5px 0px #a77efa;
+  cursor: pointer;
 }
 
 .img {
@@ -55,7 +55,7 @@ h2 {
 .button {
   width: 25px;
   height: 25px;
-  margin-top: 20px;
+  margin-top: 12px;
   background-color: #f44336;
   border: none;
   border-radius: 50%;
@@ -63,7 +63,7 @@ h2 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   position: relative;
   display: flex;
