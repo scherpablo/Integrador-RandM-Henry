@@ -13,11 +13,16 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.textContainer {
+  display: inline;
+}
+
 .fixedText {
   color: #bec6d1;
   font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .changingText {
@@ -64,10 +69,10 @@ body {
 
 @keyframes animate {
   0% {
-    transform: translateY(190vh) scale(0.2);
+    transform: translateY(-10vh) scale(0.2);
   }
   100% {
-    transform: translateY(-10vh) scale(0.2);
+    transform: translateY(190vh) scale(0.2);
   }
 }
 
@@ -79,9 +84,5 @@ body {
 
   .loopingText {
     font-size: 14px;
-  }
-
-  .burbuja {
-    display: none;
   }
 }

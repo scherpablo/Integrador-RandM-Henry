@@ -2,17 +2,17 @@
   padding: 20px 0;
   display: flex;
   justify-content: center;
+  gap:20px;
 }
 
 .input {
-  margin-right: 10px;
   border: 1px solid #11161f;
   border-radius: 5px;
   padding: 10px 25px;
 }
 
 .button {
-  background-color: #17b676; /* Green */
+  background-color: #17b676;
   border: none;
   border-radius: 5px;
   color: #11161f;
@@ -23,7 +23,7 @@
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
-  -webkit-transition-duration: 0.6s; /* Safari */
+  -webkit-transition-duration: 0.6s;
   transition-duration: 0.6s;
 }
 

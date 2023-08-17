@@ -4,7 +4,7 @@ import styles from "./SearchBar.module.css";
 export default function SearchBar(props) {
    return (
       <div className={styles.container}>
-         <input type='search' className={styles.input} />
+         <input type='search' className={styles.input} placeholder="tu busqueda aquí..." />
          <button onClick={props.onSearch} className={styles.button}>Agregar</button>
       </div>
    );
