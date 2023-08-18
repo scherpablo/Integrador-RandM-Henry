@@ -1,5 +1,5 @@
 // Definimos array de cadenas de texto que se mostrarán y borrarán en el efecto.
-const texts = ["Rick & Morty.", "HTML.", "CSS.", "JavaScript.", "React.", "Vite"];
+const texts = ["Rick & Morty.", "HTML.", "CSS.", "JavaScript.", "React.", "Vite."];
 
 // Establecemos una cadena de texto fija que no cambiará.
 const fixedText = "Proyecto Integrador";

@@ -1,3 +1,4 @@
+/* CONTAINER */
 .container {
   background-color: #1a222d;
   border: 1px solid #595f69;
@@ -12,14 +13,12 @@
 }
 
 .container:hover {
-  /* transform: scale(.9); */
-  /* -webkit-transform: scale(.9); */
   -webkit-box-shadow: 10px 10px 5px 0px #a77efa;
   -moz-box-shadow: 10px 10px 5px 0px #a77efa;
   box-shadow: 10px 10px 5px 0px #a77efa;
-  /* cursor: pointer; */
 }
 
+/* IMAGE */
 .img {
   cursor: pointer;
   border-radius: 50%;
@@ -33,10 +32,9 @@
   -webkit-transform: scale(.8);
   -webkit-border-radius: 50%;
   transition: 0.5s ease-in-out;
-  /* box-shadow: 0px 0px 15px 15px #a77efa; */
-  /* -webkit-box-shadow: 0px 0px 15px 15px #a77efa; */
 }
 
+/* H2 TEXT */
 .h2Contaniner {
   text-align: center;
   cursor: pointer;
@@ -60,7 +58,6 @@
 h2 {
   font-size: 22px;
   color: #595f69;
-  /* text-shadow: 0 0 15px #a77efa; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 8px 0;
 }
@@ -73,10 +70,8 @@ h2 {
   font-weight: 500;
 }
 
+/* BUTTON */
 .divButton {
-  /* position: relative;
-  bottom: 480px;
-  left: 270px; */
   margin-top: 12px;
   position: relative; 
   display: flex;
@@ -91,9 +86,6 @@ h2 {
   border: none;
   border-radius: 50%;
   color: white;
-  /* text-align: center; */
-  /* text-decoration: none; */
-  /* display: inline-block; */
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
