@@ -1,6 +1,6 @@
 // Número de filas y columnas en la cuadrícula
-const numRows = 19; // Cambia este valor según lo que necesites
-const numCols = 25; // Cambia este valor según lo que necesites
+const numRows = 19;
+const numCols = 25;
 
 // Calcula el total de burbujas en la cuadrícula
 const totalBurbujas = numRows * numCols;
@@ -19,8 +19,8 @@ for (let i = 0; i < totalBurbujas; i++) {
   const columnaActual = i % numCols;
 
   // Establece el estilo de posición para la burbuja
-  burbuja.style.top = `${filaActual * 80}px`; // Ajusta el tamaño según lo necesario
-  burbuja.style.left = `${columnaActual * 93}px`; // Ajusta el tamaño según lo necesario
+  burbuja.style.top = `${filaActual * 80}px`;
+  burbuja.style.left = `${columnaActual * 93}px`;
 
   burbujasContainer.appendChild(burbuja);
 }

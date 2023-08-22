@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import styles from "./Card.module.css";
 
-export default function Card(props) {
-  const { name, status, species, gender, origin, image, onClose } = props;
+const Card = (props) => {
+  const { id, name, status, species, gender, origin, image, onClose } = props;
+  const handleClose = () => {
+    onClose(id);
+  };
   return (
     <div className={styles.container}>
       <img src={image} alt="Imagen del Personaje" className={styles.img} />
@@ -22,10 +25,12 @@ export default function Card(props) {
         Origen: <span className={styles.span}>{origin.name}</span>
       </h2>
       <div className={styles.divButton}>
-        <button onClick={onClose} className={styles.button}>
+        <button onClick={handleClose} className={styles.button}>
           X
         </button>
       </div>
     </div>
   );
 }
+
+export default Card;

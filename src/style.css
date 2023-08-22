@@ -3,7 +3,31 @@ body {
   margin-top: 0;
   padding: 10px;
 }
-
+/* FONDO CUADRICULADO */
+.burbujas {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: -1;
+}
+.burbuja {
+  width: 4px;
+  height: 4px; 
+  background-color: #595f69;
+  position: absolute;
+  border-radius: 50%;
+  animation: rain 2s linear infinite;
+}
+@keyframes rain {
+  0% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* TITULO */
 .h1 {
   display: block;
   font-size: 60px;
@@ -12,11 +36,7 @@ body {
   color: #a77efa;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-.textContainer {
-  display: inline;
-}
-
+/* TEXTO DINAMICO */
 .loopingText {
   display: block;
   white-space: nowrap;
@@ -34,39 +54,14 @@ body {
   font-weight: bold;
   margin-right: 10px;
 }
-
 .changingText {
   font-style: italic;
   font-weight: 600;
   color: #a77efa;
 }
 
-.burbujas {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  z-index: -1;
-}
 
-.burbuja {
-  width: 4px;
-  height: 4px; 
-  background-color: #595f69;
-  position: absolute;
-  border-radius: 50%;
-  animation: rain 2s linear infinite;
-}
-
-@keyframes rain {
-  0% {
-    transform: translateY(-80px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
+/* MEDIA QUERY MOBILE */
 @media (max-width: 768px) {
   .fixedText {
     font-size: 20px;
@@ -75,18 +70,6 @@ body {
   .loopingText {
     font-size: 14px;
   }
-} */
-
-.grid {
-  width: 400px;
-  height: 400px;
-  background: repeating-radial-gradient(
-    circle at 25% 25%,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 2px,
-    transparent 2px,
-    transparent 4px
-  );
 }
 
 
