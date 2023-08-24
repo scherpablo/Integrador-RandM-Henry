@@ -1,25 +1,33 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import PATHROUTES from "../../helpers/PathRoutes";
 import styles from "./SearchBar.module.css";
 
 const SearchBar = ({ onSearch, onRandomAdd }) => {
   const [id, setId] = useState("");
 
-  //Crea una función handleChange de modo que, cada vez que el usuario escriba algo en el input, este se guarde en el estado local id.
   const handleChange = (e) => {
     setId(e.target.value);
   }
 
   const handleSearch = () => {
     onSearch(id);
+    setId("");
   };
 
   return (
     <div className={styles.container}>
+      <NavLink to={PATHROUTES.ABOUT}>
+        <button className={styles.buttonRandom}>About</button>
+      </NavLink>
+      <Link to={PATHROUTES.HOME}>
+        <button className={styles.buttonAdd}>Home</button>
+      </Link>
       <input
         type="search"
         className={styles.input}
-        placeholder="tu busqueda aquí...🔍"
+        placeholder="ingresa el id aquí...🔍"
         value={id}
         onChange={handleChange}
       />

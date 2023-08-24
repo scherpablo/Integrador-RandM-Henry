@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 const Card = (props) => {
@@ -9,9 +10,11 @@ const Card = (props) => {
   return (
     <div className={styles.container}>
       <img src={image} alt="Imagen del Personaje" className={styles.img} />
-      <h2 className={styles.h2Contaniner}>
-        <span className={styles.nameSpan}>{name}</span>
-      </h2>
+      <Link to={`/detail/${id}`} className={styles.link}>
+        <h2 className={styles.h2Contaniner}>
+          <span className={styles.nameSpan}>{name}</span>
+        </h2>
+      </Link>
       <h2>
         Estado: <span className={styles.span}>{status}</span>
       </h2>
@@ -31,6 +34,6 @@ const Card = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
