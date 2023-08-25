@@ -31,17 +31,16 @@ const DetailCharacter = () => {
 
         <div className={styles.containerDetail}>
           <h2 className={styles.h2Detail}>
-            Estado: <span className={styles.span}>{character?.status}</span>
+            Estado - <span className={styles.span}>{character?.status}</span>
           </h2>
           <h2 className={styles.h2Detail}>
-            Especie: <span className={styles.span}>{character?.species}</span>
+            Especie - <span className={styles.span}>{character?.species}</span>
           </h2>
           <h2 className={styles.h2Detail}>
-            Género: <span className={styles.span}>{character?.gender}</span>
+            Género - <span className={styles.span}>{character?.gender}</span>
           </h2>
           <h2 className={styles.h2Detail}>
-            Origen:{" "}
-            <span className={styles.span}>{character.origin?.name}</span>
+            Origen - <span className={styles.span}>{character.origin?.name}</span>
           </h2>
         </div>
       </div>

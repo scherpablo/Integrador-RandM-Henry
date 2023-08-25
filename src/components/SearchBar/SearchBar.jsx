@@ -32,7 +32,7 @@ const SearchBar = ({ onSearch, onRandomAdd }) => {
         onChange={handleChange}
       />
       <button onClick={handleSearch} className={styles.buttonAdd}>
-        Agregar
+        Search
       </button>
       <button onClick={onRandomAdd} className={styles.buttonRandom}>
         Random
