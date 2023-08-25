@@ -1,4 +1,59 @@
-.h1 {
-    text-align: center;
-    color: #fff;
+/*Detail.module.css*/
+.detailContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 0 30px;
 }
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* border: 2px solid blue; */
+}
+.nameContainer {
+  flex: 1;
+  padding: 20px 0;
+  box-shadow: 0 0 30px #fff;
+  border-radius: 15px;
+}
+.containerDetail {
+  text-align: center;
+}
+.imgDetail {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  transform: scale(1.5);
+  overflow: hidden;
+  box-shadow: 0 0 30px #fff;
+}
+
+/* Define aquí los estilos para tus h2, span y otros elementos necesarios */
+.h1Div {
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0 10px;
+}
+.nameSpan {
+    color: #fff;
+    font-size: 60px;;
+    padding: 0 10px;
+}
+.h2Detail {
+    font-size: 35px;
+    color: #b69c17;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 8px 0;
+  }
+.span {
+    font-size: 30px;
+    color: #17b676;
+    text-shadow: none;
+    font-style: italic;
+    font-weight: 600;
+  }

@@ -30,28 +30,30 @@
 .link {
   text-decoration: none;
 }
-.h2Contaniner {
+.h2ContaninerCard {
   text-align: center;
   cursor: pointer;
   padding: 5px 0 15px 0;
 }
-.nameSpan {
+.nameSpanCard {
   color: #1a222d;
   font-size: 18px;
   background-color: #a77efa;
   padding: 10px;
   border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.nameSpan:hover {
+.nameSpanCard:hover {
   background-color: #a77efa55;
   color: #bec6d1;
   box-shadow: 0 0 10px #bec6d1;
 }
-h2 {
+.h2Card {
   font-size: 22px;
   color: #595f69;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 8px 0;
+  text-align: center;
 }
 .span {
   font-size: 18px;

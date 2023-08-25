@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
@@ -11,22 +12,22 @@ const Card = (props) => {
     <div className={styles.container}>
       <img src={image} alt="Imagen del Personaje" className={styles.img} />
       <Link to={`/detail/${id}`} className={styles.link}>
-        <h2 className={styles.h2Contaniner}>
-          <span className={styles.nameSpan}>{name}</span>
+        <h2 className={styles.h2ContaninerCard}>
+          <span className={styles.nameSpanCard}>{name}</span>
         </h2>
       </Link>
-      <h2>
+      {/* <h2 className={styles.h2Card}>
         Estado: <span className={styles.span}>{status}</span>
-      </h2>
-      <h2>
+      </h2> */}
+      <h2 className={styles.h2Card}>
         Especie: <span className={styles.span}>{species}</span>
       </h2>
-      <h2>
+      <h2 className={styles.h2Card}>
         Género: <span className={styles.span}>{gender}</span>
       </h2>
-      <h2>
+      {/* <h2 className={styles.h2Card}>
         Origen: <span className={styles.span}>{origin.name}</span>
-      </h2>
+      </h2> */}
       <div className={styles.divButton}>
         <button onClick={handleClose} className={styles.button}>
           X
