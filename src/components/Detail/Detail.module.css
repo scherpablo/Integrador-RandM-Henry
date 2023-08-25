@@ -1,38 +1,39 @@
-/*Detail.module.css*/
 .detailContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 75vh;
   padding: 10px 20px;
+  gap: 30px;
 }
+
+/* IMAGEN CON CONTENEDOR */
 .imageContainer {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  /* border: 2px solid blue; */
+  padding: 45px 0;
+  box-shadow: 0 0 10px #fff;
+  border-radius: 15px;
+}
+.imgDetail {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5%; 
+  transform: scale(1);
+  overflow: hidden;
+  box-shadow: 0 0 15px #b69c17;
 }
 .nameContainer {
   flex: 1;
   padding: 20px 0;
-  box-shadow: 0 0 30px #fff;
+  box-shadow: 0 0 10px #fff;
   border-radius: 15px;
 }
 .containerDetail {
   text-align: center;
 }
-.imgDetail {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
-  transform: scale(1.5);
-  overflow: hidden;
-  box-shadow: 0 0 30px #fff;
-}
-
-/* Define aquí los estilos para tus h2, span y otros elementos necesarios */
 .h1Div {
     margin-bottom: 50px;
     text-align: center;
@@ -56,4 +57,47 @@
     text-shadow: none;
     font-style: italic;
     font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .detailContainer {
+      flex-direction: column;
+      padding-top: 10px;
+      height: auto;
+      gap: 30px;
+      margin-bottom: 20px;
+    }    
+    .imageContainer,
+    .nameContainer {
+      flex: auto; 
+    }    
+    .imageContainer {
+      order: -1; 
+      box-shadow: none;
+    }
+    .imgDetail {
+      box-shadow: none;
+      transform: scale(1.2);
+      border-radius: 50%;
+      box-shadow: 0 0 10px #b69c17;
+    }
+    .nameContainer {
+      padding: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    .detailContainer {
+      flex-direction: column;
+      padding-top: 20px;
+      gap: 10px;
+    }
+    .imageContainer {
+      padding: 0;
+    }
+    .imgDetail {
+      transform: scale(1);
+    }
+    .nameContainer {
+      transform: scale(.8);
+    }   
   }

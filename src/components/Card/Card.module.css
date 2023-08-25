@@ -19,6 +19,7 @@
   border-radius: 50%;
   transition: transform 0.5s ease-in-out;
   transform: scale(.9);
+  margin: 0 auto;
 }
 .img:hover {
   border-radius: 50%;

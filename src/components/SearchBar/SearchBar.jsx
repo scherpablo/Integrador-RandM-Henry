@@ -9,7 +9,7 @@ const SearchBar = ({ onSearch, onRandomAdd }) => {
 
   const handleChange = (e) => {
     setId(e.target.value);
-  }
+  };
 
   const handleSearch = () => {
     onSearch(id);
@@ -18,25 +18,31 @@ const SearchBar = ({ onSearch, onRandomAdd }) => {
 
   return (
     <div className={styles.container}>
-      <NavLink to={PATHROUTES.ABOUT}>
-        <button className={styles.buttonRandom}>About</button>
-      </NavLink>
-      <Link to={PATHROUTES.HOME}>
-        <button className={styles.buttonAdd}>Home</button>
-      </Link>
-      <input
-        type="search"
-        className={styles.input}
-        placeholder="ingresa el id aquí...🔍"
-        value={id}
-        onChange={handleChange}
-      />
-      <button onClick={handleSearch} className={styles.buttonAdd}>
-        Search
-      </button>
-      <button onClick={onRandomAdd} className={styles.buttonRandom}>
-        Random
-      </button>
+      <div className={styles.buttonsRow}>
+        <NavLink to={PATHROUTES.ABOUT}>
+          <button className={styles.buttonRandom}>About</button>
+        </NavLink>
+        <Link to={PATHROUTES.HOME}>
+          <button className={styles.buttonAdd}>Home</button>
+        </Link>
+      </div>
+      <div className={styles.inputRow}>
+        <input
+          type="search"
+          className={styles.input}
+          placeholder="ingresa el id aquí...🔍"
+          value={id}
+          onChange={handleChange}
+        />
+      </div>
+      <div className={styles.buttonsRow}>
+        <button onClick={handleSearch} className={styles.buttonAdd}>
+          Search
+        </button>
+        <button onClick={onRandomAdd} className={styles.buttonRandom}>
+          Random
+        </button>
+      </div>
     </div>
   );
 };

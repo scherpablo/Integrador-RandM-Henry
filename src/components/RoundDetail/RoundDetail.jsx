@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import styles from "./Detail.module.css";
+import styles from "./RoundDetail.module.css";
 
 const DetailCharacter = () => {
   const [character, setCharacter] = useState({});
@@ -40,7 +40,8 @@ const DetailCharacter = () => {
             Género - <span className={styles.span}>{character?.gender}</span>
           </h2>
           <h2 className={styles.h2Detail}>
-            Origen - <span className={styles.span}>{character.origin?.name}</span>
+            Origen -{" "}
+            <span className={styles.span}>{character.origin?.name}</span>
           </h2>
         </div>
       </div>
