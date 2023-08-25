@@ -3,14 +3,16 @@ import styles from "./About.module.css";
 const AboutText = () => {
   return (
     <div>
-      <h1 className={styles.h1About}>Acerca de la Página</h1>
+      <h1 className={styles.h1About}>Acerca de la App</h1>
       <div className={styles.divAbout}>
         <p className={styles.pAbout}>
           ¡Bienvenido a mi Proyecto Integrador sobre la serie Ricky & Morty,
-          estoy apasionados por traerte lo mejor de tus personajes favoritos de
+          realizado duarnte el curso de Desarrollo Web Full Stack de soy Henry.
+          Estoy muy contento por traerte lo mejor de tus personajes favoritos de
           la serie. Mi objetivo es sumergirte en el emocionante mundo de la
           serie, permitiéndote explorar a fondo los detalles de cada personaje
-          que ha capturado tu corazón.
+          que ha capturado tu corazón poner a prueba mi cpacidad como
+          Desarrollador Web.
         </p>
         <p className={styles.pAbout}>
           A través de la magia de la tecnología y el poder de la programación,
@@ -25,14 +27,13 @@ const AboutText = () => {
         </p>
         <p className={styles.pAbout}>
           Ya sea que estés buscando información sobre los héroes valientes, los
-          antihéroes complejos o los villanos maquiavélicos, ¡lo tengo
-          cubierto! Espero que disfrutes explorando esta página tanto como
-          yo he disfrutado creándola. Si compartes nuestra pasión por la
-          serie, ¡estoy seguro de que te sentirás como en casa! Gracias por
-          visitarla y formar parte de esta comunidad dedicada a celebrar todo
-          lo relacionado con la serie. ¡Prepárate para una experiencia llena de
-          emoción y descubrimientos! ¡Disfruta explorando los perfiles de los
-          personajes y sumergiéndote en sus fascinantes historias!
+          antihéroes complejos o los villanos maquiavélicos, ¡lo tengo cubierto!
+          Espero que disfrutes explorando esta página tanto como yo he
+          disfrutado creándola. Si compartes nuestra pasión por la serie, ¡estoy
+          seguro de que te sentirás como en casa! Gracias por visitarla y formar
+          parte de esta comunidad dedicada a celebrar todo lo relacionado con la
+          serie. ¡Prepárate para una experiencia llena de emoción y
+          descubrimientos!
         </p>
       </div>
     </div>
