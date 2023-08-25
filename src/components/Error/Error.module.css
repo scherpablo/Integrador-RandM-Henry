@@ -4,7 +4,7 @@
 }
 .morty {
   position: absolute;
-  top: 160px;
+  top: 175px;
 }
 .hair {
   position: absolute;
@@ -154,7 +154,7 @@
 .four {
   position: absolute;
   top: 60px;
-  left: 930px;
+  left: 937px;
   color: white;
   font-size: 200px;
   font-family: "Roboto", sans-serif;
@@ -162,10 +162,11 @@
 .h1Error {
   position: absolute;
   top: 430px;
-  left: 580px;
+  left: 592px;
   color: white;
   font-size: 100px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins";
+  letter-spacing: 3px;
 }
 @keyframes anim {
   0% {
@@ -192,9 +193,11 @@
 .h3Error {
   position: absolute;
   top: 60px;
-  left: 540px;
+  left: 525px;
   font-size: 50px;
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Poppins";
   color: white;
-  width: 450px;
+  width: 480px;
+  letter-spacing: 3px;
 }
