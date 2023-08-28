@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import PATHROUTES from "../../helpers/PathRoutes";
 import styles from "./SearchBar.module.css";
 
-const SearchBar = ({ onSearch, onRandomAdd }) => {
+const SearchBar = ({ onSearch, onRandomAdd, logout }) => {
   const [id, setId] = useState("");
 
   const handleChange = (e) => {
@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch, onRandomAdd }) => {
   return (
     <div className={styles.container}>
       <div className={styles.buttonsRow}>
-        <NavLink to={PATHROUTES.ABOUT}>
+        <NavLink className={styles.link} to={PATHROUTES.ABOUT}>
           <button className={styles.buttonRandom}>About</button>
         </NavLink>
         <Link to={PATHROUTES.HOME}>
@@ -41,6 +41,9 @@ const SearchBar = ({ onSearch, onRandomAdd }) => {
         </button>
         <button onClick={onRandomAdd} className={styles.buttonRandom}>
           Random
+        </button>
+        <button onClick={logout} className={styles.buttonLogout}>
+          Logout
         </button>
       </div>
     </div>

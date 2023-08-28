@@ -1,0 +1,66 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  padding: 0 140px 0 0;
+  margin: 0 auto;
+}
+.imgForm {
+  border-radius: 50%;
+  transform: scale(0.6);
+}
+.divInputsForm {
+  border: 1px solid #fff;
+  border-radius: 15px;
+  padding: 30px 50px;
+  color: #fff;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+.divInputsForm input {
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.errorsInput {
+  border: 3px solid red;
+}
+.errorsInput:focus {
+  outline: none;
+}
+.successInput {
+  border: 3px solid green;
+}
+.errorsSpan {
+  font-size: 10px;
+  margin-top: 10px;
+  color: red;
+}
+.divButtonLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.buttonLoginForm {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  background-color: #17b676;
+}
+.buttonLoginForm:hover {
+  background-color: #17b67688;
+}

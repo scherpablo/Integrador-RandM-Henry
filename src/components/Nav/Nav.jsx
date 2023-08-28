@@ -2,10 +2,10 @@
 import SearchBar from "../SearchBar/SearchBar.jsx";
 // import styles from "./Nav.module.css";
 
-const Nav = ({ onSearch, onRandomAdd }) => {
+const Nav = ({ onSearch, onRandomAdd, logout }) => {
   return (
     <div>
-      <SearchBar onSearch={onSearch} onRandomAdd={onRandomAdd} />
+      <SearchBar onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
     </div>
   );
 };
