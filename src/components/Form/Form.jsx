@@ -5,6 +5,7 @@ import { validateEmail, validatePassword } from "../../helpers/Validation";
 import styles from "./Form.module.css";
 
 const Form = (props) => {
+  // ESTADOS //
   const { login } = props;
   const [userData, setUserData] = useState({
     email: "",
@@ -14,11 +15,11 @@ const Form = (props) => {
     email: "",
     password: "",
   });
-
+  // FUNCIONES //  
   const handleChange = (e) => {
     const property = e.target.name;
     const value = e.target.value;
-  
+
     setUserData({ ...userData, [property]: value });
     if (property === "email") {
       if (value === "") {
@@ -34,23 +35,10 @@ const Form = (props) => {
       }
     }
   };
-  
-  // const handleChange = (e) => {
-  //   const property = e.target.name;
-  //   const value = e.target.value;
-
-  //   setUserData({ ...userData, [property]: value });
-  //   if (property === "email") {
-  //     validateEmail({ email: value }, errors, setErrors);
-  //   } else if (property === "password") {
-  //     validatePassword({ password: value }, errors, setErrors);
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     login(userData);
-  };
+  };  
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -72,8 +60,13 @@ const Form = (props) => {
               value={userData.email}
               onChange={handleChange}
               placeholder="📧 email"
-              // className={errors.email ? styles.errorsInput : styles.successInput}
-              className={errors.email ? styles.errorsInput : (userData.email && !errors.email) ? styles.successInput : ""}
+              className={
+                errors.email
+                  ? styles.errorsInput
+                  : userData.email && !errors.email
+                  ? styles.successInput
+                  : ""
+              }
             />
             <span className={errors.email ? styles.errorsSpan : ""}>
               {errors.email}
@@ -88,9 +81,13 @@ const Form = (props) => {
               value={userData.password}
               onChange={handleChange}
               placeholder="🔐 password"
-              // className={errors.password ? styles.errorsInput : ""}
-              className={errors.password ? styles.errorsInput : (userData.password && !errors.password) ? styles.successInput : ""}
-
+              className={
+                errors.password
+                  ? styles.errorsInput
+                  : userData.password && !errors.password
+                  ? styles.successInput
+                  : ""
+              }
             />
             <span className={errors.password ? styles.errorsSpan : ""}>
               {errors.password}
