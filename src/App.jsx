@@ -8,7 +8,7 @@ import Nav from "./components/Nav/Nav.jsx";
 import Login from "./views/Login.view.jsx";
 import Home from "./views/Home.view.jsx";
 import About from "./views/About.view.jsx";
-import RoundDetail from "./views/RoundDetail.view.jsx";
+import Detail from "./views/Detail.view.jsx";
 import Error from "./views/Error.view.jsx";
 //HELPERS
 import PATHROUTES from "./helpers/PathRoutes.js";
@@ -102,7 +102,7 @@ const App = () => {
               element={<Home characters={characters} onClose={onClose} />}
             />
             <Route path={PATHROUTES.ABOUT} element={<About />} />
-            <Route path={PATHROUTES.DETAIL} element={<RoundDetail />} />
+            <Route path={PATHROUTES.DETAIL} element={<Detail />} />
             <Route path={PATHROUTES.ERROR} element={<Error />} />
           </>
         )}

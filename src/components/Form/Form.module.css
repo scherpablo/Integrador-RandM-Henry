@@ -1,25 +1,31 @@
+/* FORM */
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 75vh;
-  padding: 0 140px 0 0;
-  margin: 0 auto;
+  padding: 0px 50px 0px 0;
 }
+/* IMAGEN FORM */
 .imgForm {
   border-radius: 50%;
   transform: scale(0.6);
 }
+/* INPUTS Y LABELS FORM */
+.containerInputsForm {
+  padding: 115px 65px;
+}
 .divInputsForm {
   border: 1px solid #fff;
   border-radius: 15px;
-  padding: 30px 50px;
-  color: #fff;
+  padding: 40px 55px;
+  color: #b69c17;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 700;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 15px #fff;
 }
 .divInputsForm input {
   border-radius: 5px;
@@ -32,6 +38,7 @@
   flex-direction: column;
   padding: 20px;
 }
+/* ERRORES */
 .errorsInput {
   border: 3px solid red;
 }
@@ -41,11 +48,15 @@
 .successInput {
   border: 3px solid green;
 }
+.successInput:focus {
+  outline: none;
+}
 .errorsSpan {
   font-size: 10px;
   margin-top: 10px;
   color: red;
 }
+/* BOTON */
 .divButtonLogin {
   display: flex;
   justify-content: center;
@@ -63,4 +74,25 @@
 }
 .buttonLoginForm:hover {
   background-color: #17b67688;
+}
+
+/* MEDIAS QUERY */
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+  }
+  .divImgForm {
+    margin: -120px 0;
+  }
+  .imgForm {
+    transform: scale(0.5);
+  }
+  .divInputsForm {
+    margin-bottom: 20px;
+  }
+  .containerInputsForm {
+    padding: 30px 0 0 0;
+  }
 }

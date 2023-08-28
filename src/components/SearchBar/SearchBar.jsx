@@ -30,7 +30,7 @@ const SearchBar = ({ onSearch, onRandomAdd, logout }) => {
         <input
           type="search"
           className={styles.input}
-          placeholder="ingresa el id aquí...🔍"
+          placeholder="🔍 id"
           value={id}
           onChange={handleChange}
         />
