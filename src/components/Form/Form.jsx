@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-useless-escape */
 import { useState } from "react";
 import { validateEmail, validatePassword } from "../../helpers/Validation";
 import styles from "./Form.module.css";

@@ -22,7 +22,7 @@ const DetailCharacter = () => {
 
   return (
     <div className={styles.detailContainer}>
-      <div className={styles.nameContainer}>
+      <div className={styles.descriptionContainer}>
         <div className={styles.h1Div}>
           <h1 className={styles.h2Contaniner}>
             <span className={styles.nameSpan}>{character?.name}</span>

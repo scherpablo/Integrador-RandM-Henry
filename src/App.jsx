@@ -18,9 +18,9 @@ const App = () => {
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  const location = useLocation();
-  const EMAIL = "scherpablo@gmail.com";
-  const PASSWORD = "liamsl16";
+  const { pathname } = useLocation();
+  const EMAIL = "";
+  const PASSWORD = "";
 
   const login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -91,7 +91,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
+      {pathname !== "/" && <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />}
       <Routes>
         {location.pathname === PATHROUTES.LOGIN ? (
           <Route path={PATHROUTES.LOGIN} element={<Login login={login} />} />
