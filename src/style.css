@@ -17,7 +17,7 @@ body {
   background-color: #595f69;
   position: absolute;
   border-radius: 50%;
-  animation: rain 2s linear infinite;
+  animation: rain 6s linear infinite;
 }
 @keyframes rain {
   0% {
