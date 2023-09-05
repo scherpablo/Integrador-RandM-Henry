@@ -6,7 +6,6 @@ const initialState = {
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADD_FAV":
-      // Haz una copia del array myFavorites y agrega el payload
       let copy1 = [...state.myFavorites];
       copy1.push(payload);
       return {
@@ -22,7 +21,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
         myFavorites: copy2,
       };
     default:
-      return state; // No necesitas crear un nuevo objeto aquí
+      return {
+        ...state,
+      }
   }
 };
 

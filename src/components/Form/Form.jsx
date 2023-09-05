@@ -5,11 +5,11 @@ import styles from "./Form.module.css";
 const Form = (props) => {
   // ESTADOS //
   const { login } = props;
-  const [userData, setUserData] = useState({
+  const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
+  const [userData, setUserData] = useState({
     email: "",
     password: "",
   });

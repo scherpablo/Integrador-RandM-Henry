@@ -97,7 +97,6 @@ const App = () => {
         <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
         )}
       <Routes>
-        <Route path={PATHROUTES.ERROR} element={<Error />} />
         <Route path={PATHROUTES.LOGIN} element={<Login login={login} />} />
         <Route
           path={PATHROUTES.HOME}
@@ -106,7 +105,7 @@ const App = () => {
         <Route path={PATHROUTES.ABOUT} element={<About />} />
         <Route path={PATHROUTES.DETAIL} element={<Detail />} />
         <Route path={PATHROUTES.FAVORITES} element={<Favorites />} />
-        {/* <Route path={PATHROUTES.ERROR} element={<Error />} /> */}
+        <Route path={PATHROUTES.ERROR} element={<Error />} />
       </Routes>
     </div>
   );
