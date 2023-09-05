@@ -87,3 +87,11 @@
   background-color: #c11336;
   color: black;
 }
+
+/* HEART */
+.heart {
+  background-color: #a77efa;
+  border-radius: 5px;
+  border: none;
+}
+

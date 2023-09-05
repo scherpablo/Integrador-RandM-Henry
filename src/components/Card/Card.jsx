@@ -28,6 +28,7 @@ const Card = (props) => {
 
   const handleClose = () => {
     onClose(id);
+    removeFav(id);
   };
 
   const handleFav = () => {
@@ -59,9 +60,9 @@ const Card = (props) => {
   return (
     <div className={styles.container}>
       {isFav ? (
-        <button onClick={handleFav}>❤️</button>
+        <button onClick={handleFav} className={styles.heart}>❤️</button>
       ) : (
-        <button onClick={handleFav}>🤍</button>
+        <button onClick={handleFav} className={styles.heart}>🤍</button>
       )}
       <img src={image} alt="Imagen del Personaje" className={styles.img} />
       <Link to={`/detail/${id}`} className={styles.link}>
@@ -88,11 +89,6 @@ const Card = (props) => {
           </button>
         </div>
       )}
-      {/* <div className={styles.divButton}>
-        <button onClick={handleClose} className={styles.button}>
-          X
-        </button>
-      </div> */}
     </div>
   );
 };
