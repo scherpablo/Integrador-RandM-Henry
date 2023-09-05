@@ -19,6 +19,9 @@ const SearchBar = ({ onSearch, onRandomAdd, logout }) => {
   return (
     <div className={styles.container}>
       <div className={styles.buttonsRow}>
+        <Link to={PATHROUTES.FAVORITES}>
+          <button className={styles.buttonLogout}>Favorites</button>
+        </Link>
         <NavLink className={styles.link} to={PATHROUTES.ABOUT}>
           <button className={styles.buttonRandom}>About</button>
         </NavLink>

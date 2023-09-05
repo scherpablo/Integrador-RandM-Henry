@@ -9,6 +9,7 @@ import Login from "./views/Login.view.jsx";
 import Home from "./views/Home.view.jsx";
 import About from "./views/About.view.jsx";
 import Detail from "./views/Detail.view.jsx";
+import Favorites from "./views/Favorites.view.jsx";
 import Error from "./views/Error.view.jsx";
 //HELPERS
 import PATHROUTES from "./helpers/PathRoutes.js";
@@ -91,21 +92,20 @@ const App = () => {
 
   return (
     <div className="App">
-      {pathname !== "/" && <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />}
-      <Routes>
-        {location.pathname === PATHROUTES.LOGIN ? (
-          <Route path={PATHROUTES.LOGIN} element={<Login login={login} />} />
-        ) : (
-          <>
-            <Route
-              path={PATHROUTES.HOME}
-              element={<Home characters={characters} onClose={onClose} />}
-            />
-            <Route path={PATHROUTES.ABOUT} element={<About />} />
-            <Route path={PATHROUTES.DETAIL} element={<Detail />} />
-            <Route path={PATHROUTES.ERROR} element={<Error />} />
-          </>
+      {pathname !== PATHROUTES.LOGIN && (
+        <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
         )}
+      <Routes>
+        <Route path={PATHROUTES.ERROR} element={<Error />} />
+        <Route path={PATHROUTES.LOGIN} element={<Login login={login} />} />
+        <Route
+          path={PATHROUTES.HOME}
+          element={<Home characters={characters} onClose={onClose} />}
+        />
+        <Route path={PATHROUTES.ABOUT} element={<About />} />
+        <Route path={PATHROUTES.DETAIL} element={<Detail />} />
+        <Route path={PATHROUTES.FAVORITES} element={<Favorites />} />
+        {/* <Route path={PATHROUTES.ERROR} element={<Error />} /> */}
       </Routes>
     </div>
   );

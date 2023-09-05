@@ -1,15 +1,67 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { addFav, removeFav } from "../../redux/actions";
+import { connect } from "react-redux";
 import styles from "./Card.module.css";
+import { useState, useEffect } from "react";
 
 const Card = (props) => {
-  const { id, name, status, species, gender, origin, image, onClose } = props;
+  const [isFav, setIsFav] = useState(false);
+  const location = useLocation();
+
+  const {
+    id,
+    name,
+    status,
+    species,
+    gender,
+    origin,
+    image,
+    onClose,
+    addFav,
+    removeFav,
+    myFavorites,
+  } = props;
+
   const handleClose = () => {
     onClose(id);
   };
+
+  const handleFav = () => {
+    isFav ? removeFav(id) : addFav(props);
+    setIsFav(!isFav);
+  };
+
+  const checkIsFav = () => {
+    for (let i = 0; i < myFavorites.length; i++) {
+      if (myFavorites[i].id === id) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    setIsFav(checkIsFav());
+  }, []);
+
+  //   useEffect(() => {
+  //     myFavorites.forEach((fav) => {
+  //        if (fav.id === props.id) {
+  //           setIsFav(true);
+  //        }
+  //     });
+  //  }, [myFavorites]);
+
   return (
     <div className={styles.container}>
+      {isFav ? (
+        <button onClick={handleFav}>❤️</button>
+      ) : (
+        <button onClick={handleFav}>🤍</button>
+      )}
       <img src={image} alt="Imagen del Personaje" className={styles.img} />
       <Link to={`/detail/${id}`} className={styles.link}>
         <h2 className={styles.h2ContaninerCard}>
@@ -28,13 +80,33 @@ const Card = (props) => {
       {/* <h2 className={styles.h2Card}>
         Origen: <span className={styles.span}>{origin.name}</span>
       </h2> */}
-      <div className={styles.divButton}>
+      {location.pathname !== "/favorites" && ( // Verificar la ubicación actual
+        <div className={styles.divButton}>
+          <button onClick={handleClose} className={styles.button}>
+            X
+          </button>
+        </div>
+      )}
+      {/* <div className={styles.divButton}>
         <button onClick={handleClose} className={styles.button}>
           X
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default Card;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (character) => dispatch(addFav(character)),
+    removeFav: (id) => dispatch(removeFav(id)),
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
