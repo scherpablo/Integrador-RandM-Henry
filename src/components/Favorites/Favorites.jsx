@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { connect } from "react-redux";
 import Card from "../Card/Card";
 import styles from "./Favorites.module.css";

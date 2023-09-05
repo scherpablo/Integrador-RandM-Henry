@@ -1,3 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  min-width: 400px;
+}
 body {
   background-color: #11161f;
   margin-top: 0;
@@ -60,13 +68,11 @@ body {
   color: #a77efa;
 }
 
-
 /* MEDIA QUERY MOBILE */
 @media (max-width: 768px) {
   .fixedText {
     font-size: 20px;
   }
-
   .loopingText {
     font-size: 14px;
   }

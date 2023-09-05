@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import styles from "./Nav.module.css";
 

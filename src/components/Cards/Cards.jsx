@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Card from "../Card/Card.jsx";
 import styles from "./Cards.module.css"
 

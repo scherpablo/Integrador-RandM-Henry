@@ -4,6 +4,8 @@
   align-items: center;
   gap: 20px;
   margin: 10px auto;
+  width: auto;
+  overflow: hidden;
 }
 .buttonsRow {
   display: flex;
@@ -55,20 +57,24 @@
   border: 1px solid white;
   color: white;
 }
-
-/* Media query for tablets and mobile devices */
-@media (max-width: 768px) {
+/* MEDIAS QUERY */
+@media (max-width: 1140px) {
   .container {
     flex-direction: column;
-  }
-
+  }  
+}
+@media (max-width: 768px) {
   .buttonsRow {
     flex-direction: row;
     align-items: center;
   }
-
   .inputRow {
     display: flex;
     justify-content: center;
   }
+}
+@media (max-width: 480px) {
+  .buttonsRow {
+    transform: scale(0.8);
+  }  
 }

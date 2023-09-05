@@ -93,5 +93,6 @@
   background-color: #a77efa;
   border-radius: 5px;
   border: none;
+  position: fixed;
 }
 
