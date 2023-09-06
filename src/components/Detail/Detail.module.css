@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  min-height: 82vh;
   padding: 0px 50px;
 }
 /* IMAGEN REDONDA */

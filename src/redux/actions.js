@@ -1,4 +1,5 @@
 
+
 const addFav = (character) => {
   return {
     type: "ADD_FAV",
