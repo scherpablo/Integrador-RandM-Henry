@@ -1,8 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions";
 import { connect } from "react-redux";
 import styles from "./Card.module.css";
-import { useState, useEffect } from "react";
 
 const Card = (props) => {
   const [isFav, setIsFav] = useState(false);
@@ -45,14 +45,6 @@ const Card = (props) => {
     setIsFav(checkIsFav());
   }, []);
 
-  //   useEffect(() => {
-  //     myFavorites.forEach((fav) => {
-  //        if (fav.id === props.id) {
-  //           setIsFav(true);
-  //        }
-  //     });
-  //  }, [myFavorites]);
-
   return (
     <div className={styles.container}>
       {isFav ? (
@@ -66,19 +58,19 @@ const Card = (props) => {
           <span className={styles.nameSpanCard}>{name}</span>
         </h2>
       </Link>
-      {/* <h2 className={styles.h2Card}>
+      <h2 className={styles.h2Card}>
         Estado: <span className={styles.span}>{status}</span>
-      </h2> */}
+      </h2>
       <h2 className={styles.h2Card}>
         Especie: <span className={styles.span}>{species}</span>
       </h2>
       <h2 className={styles.h2Card}>
         Género: <span className={styles.span}>{gender}</span>
       </h2>
-      {/* <h2 className={styles.h2Card}>
+      <h2 className={styles.h2Card}>
         Origen: <span className={styles.span}>{origin.name}</span>
-      </h2> */}
-      {location.pathname !== "/favorites" && ( // Verificar la ubicación actual
+      </h2>
+      {location.pathname !== "/favorites" && (
         <div className={styles.divButton}>
           <button onClick={handleClose} className={styles.button}>
             X

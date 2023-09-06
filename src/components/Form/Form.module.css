@@ -82,6 +82,11 @@
   margin-top: 10px;
   color: red;
 }
+.errorText {
+  color: red;
+  font-size: 10px;
+  margin-top: 5px;
+}
 /* BOTON */
 .divButtonLogin {
   display: flex;

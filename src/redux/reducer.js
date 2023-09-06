@@ -1,9 +1,8 @@
-/* eslint-disable no-case-declarations */
 const initialState = {
   myFavorites: [],
 };
 
-const rootReducer = (state = initialState, { type, payload }) => {
+const favoritesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADD_FAV":
       let copy1 = [...state.myFavorites];
@@ -27,4 +26,4 @@ const rootReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default rootReducer;
+export default favoritesReducer;

@@ -34,20 +34,23 @@
 .h2ContaninerCard {
   text-align: center;
   cursor: pointer;
-  padding: 5px 0 15px 0;
+  height: auto;
+  padding: 5px 0;
+  background-color: #a77efa;
+  border-radius: 10px;
 }
 .nameSpanCard {
   color: #1a222d;
   font-size: 18px;
-  background-color: #a77efa;
   padding: 10px;
-  border-radius: 5px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.nameSpanCard:hover {
+.h2ContaninerCard:hover {
   background-color: #a77efa55;
-  color: #bec6d1;
   box-shadow: 0 0 10px #bec6d1;
+}
+.nameSpanCard:hover {
+  color: #bec6d1;
 }
 .h2Card {
   font-size: 22px;
@@ -91,6 +94,7 @@
 /* HEART */
 .heart {
   background-color: #a77efa;
+  padding: 3px;
   border-radius: 5px;
   border: none;
   position: fixed;

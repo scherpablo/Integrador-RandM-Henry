@@ -4,6 +4,7 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 // COMPONENTES
 import Nav from "./components/Nav/Nav.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 // VIEWS
 import Login from "./views/Login.view.jsx";
 import Home from "./views/Home.view.jsx";
@@ -20,11 +21,11 @@ const App = () => {
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
-  const EMAIL = "";
-  const PASSWORD = "";
+  const EMAIL = "pablo@pablo.com";
+  const PASSWORD = "123456";
 
   const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
+    if (userData.email === EMAIL && userData.password === PASSWORD) {
       setAccess(true);
       navigate(PATHROUTES.HOME);
     }
@@ -34,30 +35,22 @@ const App = () => {
     navigate(PATHROUTES.LOGIN);
   };
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access]);
-
   const onSearch = (id) => {
     if (!/^\d+$/.test(id)) {
       window.alert("¡El ID debe ser un número válido!");
       return;
     }
-
     const numericId = parseInt(id, 10);
-
     if (numericId < 1 || numericId > 826) {
       window.alert("¡El ID debe estar entre 1 y 826!");
       return;
     }
-
     axios(`https://rickandmortyapi.com/api/character/${numericId}`)
       .then(({ data }) => {
         if (data.name) {
           const isCharacterAdded = characters.some(
             (character) => character.id === data.id
           );
-
           if (isCharacterAdded) {
             window.alert("¡Este personaje ya está en la lista!");
           } else {
@@ -90,20 +83,28 @@ const App = () => {
     });
   };
 
+  // const is404Page = pathname === PATHROUTES.ERROR;
+  const isLoginPage = pathname === PATHROUTES.LOGIN;
+
   return (
     <div className="App">
-      {pathname !== PATHROUTES.LOGIN && (
+      {!isLoginPage && access === true && (
         <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
-        )}
+      )}
+      {/* {pathname !== PATHROUTES.LOGIN && (
+        <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
+      )} */}
       <Routes>
         <Route path={PATHROUTES.LOGIN} element={<Login login={login} />} />
-        <Route
-          path={PATHROUTES.HOME}
-          element={<Home characters={characters} onClose={onClose} />}
-        />
-        <Route path={PATHROUTES.ABOUT} element={<About />} />
-        <Route path={PATHROUTES.DETAIL} element={<Detail />} />
-        <Route path={PATHROUTES.FAVORITES} element={<Favorites />} />
+        <Route element={<ProtectedRoute canActivate={access} />}>
+          <Route
+            path={PATHROUTES.HOME}
+            element={<Home characters={characters} onClose={onClose} />}
+          />
+          <Route exact path={PATHROUTES.ABOUT} element={<About />} />
+          <Route path={PATHROUTES.DETAIL} element={<Detail />} />
+          <Route path={PATHROUTES.FAVORITES} element={<Favorites />} />
+        </Route>
         <Route path={PATHROUTES.ERROR} element={<Error />} />
       </Routes>
     </div>

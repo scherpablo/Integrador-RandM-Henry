@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { validateEmail, validatePassword } from "../../helpers/Validation";
 import styles from "./Form.module.css";
+import PATHROUTES from "../../helpers/PathRoutes";
 
 const Form = (props) => {
   // ESTADOS //
   const { login } = props;
+  const navigate = useNavigate();
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -13,7 +17,8 @@ const Form = (props) => {
     email: "",
     password: "",
   });
-  // FUNCIONES //  
+
+  // FUNCIONES //
   const handleChange = (e) => {
     const property = e.target.name;
     const value = e.target.value;
@@ -33,19 +38,22 @@ const Form = (props) => {
       }
     }
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsFormSubmitted(true);
+
+    if (userData.email.trim() === "" || userData.password.trim() === "") {
+      return;
+    }
     login(userData);
-  };  
+    navigate(PATHROUTES.HOME);
+  };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.divImgForm}>
-        <img
-          className={styles.imgForm}
-          src="../public/img/imgForm.png"
-          alt=""
-        />
+        <img className={styles.imgForm} src="/img/imgForm.png" alt="" />
       </div>
       <div className={styles.containerInputsForm}>
         <div className={styles.divInputsForm}>
@@ -59,13 +67,17 @@ const Form = (props) => {
               onChange={handleChange}
               placeholder="📧 email"
               className={
-                errors.email
+                errors.email ||
+                (isFormSubmitted && userData.email.trim() === "")
                   ? styles.errorsInput
                   : userData.email && !errors.email
                   ? styles.successInput
                   : ""
               }
             />
+            {isFormSubmitted && userData.email.trim() === "" && (
+              <div className={styles.errorText}>Email requerido.</div>
+            )}
             <span className={errors.email ? styles.errorsSpan : ""}>
               {errors.email}
             </span>
@@ -80,13 +92,17 @@ const Form = (props) => {
               onChange={handleChange}
               placeholder="🔐 password"
               className={
-                errors.password
+                errors.password ||
+                (isFormSubmitted && userData.password.trim() === "")
                   ? styles.errorsInput
                   : userData.password && !errors.password
                   ? styles.successInput
                   : ""
               }
             />
+            {isFormSubmitted && userData.password.trim() === "" && (
+              <div className={styles.errorText}>Contraseña requerida.</div>
+            )}
             <span className={errors.password ? styles.errorsSpan : ""}>
               {errors.password}
             </span>
