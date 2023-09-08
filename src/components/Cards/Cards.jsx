@@ -3,6 +3,7 @@ import styles from "./Cards.module.css"
 
 const  Cards = (props) => {
   const { characters, onClose } = props; 
+
   return (
     <div className={styles.container}>
       {characters.map((character) => (

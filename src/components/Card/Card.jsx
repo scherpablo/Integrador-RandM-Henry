@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-// import { connect } from "react-redux";
 import styles from "./Card.module.css";
 
 const Card = (props) => {
@@ -20,30 +19,20 @@ const Card = (props) => {
     origin,
     image,
     onClose,
-    // addFav,
-    // removeFav,
-    // myFavorites,
   } = props;
 
   const handleClose = () => {
     onClose(id);
+    removeFav(id);
     dispatch(removeFav(id));
   };
-
-  // const handleClose = () => {
-  //   onClose(id);
-  //   removeFav(id);
-  // };
-
+  
   const handleFav = () => {
+    isFav ? removeFav(id) : addFav(props);
     isFav ? dispatch(removeFav(id)) : dispatch(addFav(props));
     setIsFav(!isFav);
   };
-  // const handleFav = () => {
-  //   isFav ? removeFav(id) : addFav(props);
-  //   setIsFav(!isFav);
-  // };
-
+ 
   const checkIsFav = () => {
     for (let i = 0; i < myFavorites.length; i++) {
       if (myFavorites[i].id === id) {
@@ -60,9 +49,13 @@ const Card = (props) => {
   return (
     <div className={styles.container}>
       {isFav ? (
-        <button onClick={handleFav} className={styles.heart}>❤️</button>
+        <button onClick={handleFav} className={styles.heart}>
+          ❤️
+        </button>
       ) : (
-        <button onClick={handleFav} className={styles.heart}>🤍</button>
+        <button onClick={handleFav} className={styles.heart}>
+          🤍
+        </button>
       )}
       <img src={image} alt="Imagen del Personaje" className={styles.img} />
       <Link to={`/detail/${id}`} className={styles.link}>
@@ -93,18 +86,4 @@ const Card = (props) => {
   );
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addFav: (character) => dispatch(addFav(character)),
-//     removeFav: (id) => dispatch(removeFav(id)),
-//   };
-// };
-
-// const mapStateToProps = (state) => {
-//   return {
-//     myFavorites: state.myFavorites,
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Card);
 export default Card;
