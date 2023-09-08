@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+// import { connect } from "react-redux";
 import styles from "./Card.module.css";
 
 const Card = (props) => {
   const [isFav, setIsFav] = useState(false);
   const location = useLocation();
+  const dispatch = useDispatch();
+  const myFavorites = useSelector((state) => state.myFavorites);
 
   const {
     id,
@@ -17,20 +20,29 @@ const Card = (props) => {
     origin,
     image,
     onClose,
-    addFav,
-    removeFav,
-    myFavorites,
+    // addFav,
+    // removeFav,
+    // myFavorites,
   } = props;
 
   const handleClose = () => {
     onClose(id);
-    removeFav(id);
+    dispatch(removeFav(id));
   };
 
+  // const handleClose = () => {
+  //   onClose(id);
+  //   removeFav(id);
+  // };
+
   const handleFav = () => {
-    isFav ? removeFav(id) : addFav(props);
+    isFav ? dispatch(removeFav(id)) : dispatch(addFav(props));
     setIsFav(!isFav);
   };
+  // const handleFav = () => {
+  //   isFav ? removeFav(id) : addFav(props);
+  //   setIsFav(!isFav);
+  // };
 
   const checkIsFav = () => {
     for (let i = 0; i < myFavorites.length; i++) {
@@ -81,17 +93,18 @@ const Card = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addFav: (character) => dispatch(addFav(character)),
-    removeFav: (id) => dispatch(removeFav(id)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addFav: (character) => dispatch(addFav(character)),
+//     removeFav: (id) => dispatch(removeFav(id)),
+//   };
+// };
 
-const mapStateToProps = (state) => {
-  return {
-    myFavorites: state.myFavorites,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     myFavorites: state.myFavorites,
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+// export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default Card;

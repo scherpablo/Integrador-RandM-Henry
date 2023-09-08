@@ -1,10 +1,16 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_CHARACTER_DETAIL } from "./actionsTypes";
+import {
+  ADD_FAV,
+  REMOVE_FAV,
+  FILTER,
+  ORDER,
+  GET_CHARACTER_DETAIL,
+} from "./actionsTypes";
 
 const initialState = {
   myFavorites: [],
   allCharacters: [],
   characterDetail: {},
-}
+};
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {

@@ -4,8 +4,6 @@ import styles from "./Detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacterDetail } from "../../redux/actions";
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
-
 const DetailCharacter = () => {
   const { id } = useParams();
   const character = useSelector((state) => state.characterDetail);
