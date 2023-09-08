@@ -1,5 +1,5 @@
 // Número de filas y columnas en la cuadrícula
-const numRows = 16;
+const numRows = 10;
 const numCols = 17;
 
 // Calcula el total de burbujas en la cuadrícula

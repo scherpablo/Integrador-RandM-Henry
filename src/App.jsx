@@ -24,7 +24,7 @@ const App = () => {
 
   const { pathname } = useLocation();
   const EMAIL = "pablo@pablo.com";
-  const PASSWORD = "123456";
+  const PASSWORD = "111111";
 
   const login = (userData) => {
     if (userData.email === EMAIL && userData.password === PASSWORD) {

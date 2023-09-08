@@ -109,6 +109,31 @@
   background-color: #17b67688;
 }
 
+/* FONDO CUADRICULADO */
+.burbujas {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: -1;
+}
+.burbuja {
+  width: 4px;
+  height: 4px; 
+  background-color: #595f69;
+  position: absolute;
+  border-radius: 50%;
+  animation: rain 6s linear infinite;
+}
+@keyframes rain {
+  0% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 /* .form {
   display: flex;

@@ -47,12 +47,4 @@ const getCharacterDetail = (id) => {
   }
 }
 
-// const getCharacterDetail = (id) => {
-//   return function (dispatch) {
-//     fetch(`https://rickandmortyapi.com/api/character/${id}`)
-//       .then((response) => response.json())
-//       .then((data) => dispatch({ type: GET_CHARACTER_DETAIL, payload: data }));
-//   };
-// };
-
 export { addFav, removeFav, filterCards, orderCards, getCharacterDetail };
