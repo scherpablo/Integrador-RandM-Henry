@@ -1,5 +1,3 @@
-
-
 const addFav = (character) => {
   return {
     type: "ADD_FAV",
@@ -14,4 +12,18 @@ const removeFav = (id) => {
   };
 };
 
-export { addFav, removeFav };
+const filterCards = (gender) => {
+  return {
+    type: "FILTER",
+    payload: gender,
+  };
+};
+
+const orderCards = (order) => {
+  return {
+    type: "ORDER",
+    payload: order,
+  };
+};
+
+export { addFav, removeFav, filterCards, orderCards };

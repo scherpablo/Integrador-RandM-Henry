@@ -1,6 +1,6 @@
-import axios from "axios";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import styles from "./Detail.module.css";
 
 const DetailCharacter = () => {
@@ -8,27 +8,25 @@ const DetailCharacter = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert("No hay personajes con ese ID");
-        }
+    const urlBase = "https://rickandmortyapi.com/api";
+    axios(`${urlBase}/character/${id}`).then(({ data }) => {
+      if (data.name) {
+        setCharacter(data);
+      } else {
+        window.alert("No hay personajes con ese ID");
       }
-    );
+    });
     return setCharacter({});
   }, [id]);
 
   return (
     <div className={styles.detailContainer}>
-      <div className={styles.descriptionContainer}>
+      <div className={styles.descriptionContainer}>        
         <div className={styles.h1Div}>
           <h1 className={styles.h2Contaniner}>
             <span className={styles.nameSpan}>{character?.name}</span>
           </h1>
         </div>
-
         <div className={styles.containerDetail}>
           <h2 className={styles.h2Detail}>
             Estado - <span className={styles.span}>{character?.status}</span>
