@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./Detail.module.css";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 const DetailCharacter = () => {
   const [character, setCharacter] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    const urlBase = "https://rickandmortyapi.com/api";
-    axios(`${urlBase}/character/${id}`).then(({ data }) => {
+    axios(`${baseUrl}/character/${id}`).then(({ data }) => {
       if (data.name) {
         setCharacter(data);
       } else {
@@ -21,7 +22,7 @@ const DetailCharacter = () => {
 
   return (
     <div className={styles.detailContainer}>
-      <div className={styles.descriptionContainer}>        
+      <div className={styles.descriptionContainer}>
         <div className={styles.h1Div}>
           <h1 className={styles.h2Contaniner}>
             <span className={styles.nameSpan}>{character?.name}</span>

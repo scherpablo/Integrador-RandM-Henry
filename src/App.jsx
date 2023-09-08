@@ -15,9 +15,12 @@ import Error from "./views/Error.view.jsx";
 //HELPERS
 import PATHROUTES from "./helpers/PathRoutes.js";
 
+const baseUrl = import.meta.env.VITE_BASE_URL
+
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  // const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(localStorage.getItem("isLoggedIn") === "true");
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
@@ -27,13 +30,25 @@ const App = () => {
   const login = (userData) => {
     if (userData.email === EMAIL && userData.password === PASSWORD) {
       setAccess(true);
+      localStorage.setItem("isLoggedIn", "true");
       navigate(PATHROUTES.HOME);
     }
   };
+  // const login = (userData) => {
+  //   if (userData.email === EMAIL && userData.password === PASSWORD) {
+  //     setAccess(true);
+  //     navigate(PATHROUTES.HOME);
+  //   }
+  // };
   const logout = () => {
     setAccess(false);
+    localStorage.removeItem("isLoggedIn");
     navigate(PATHROUTES.LOGIN);
   };
+  // const logout = () => {
+  //   setAccess(false);
+  //   navigate(PATHROUTES.LOGIN);
+  // };
 
   const onSearch = (id) => {
     if (!/^\d+$/.test(id)) {
@@ -45,7 +60,8 @@ const App = () => {
       window.alert("¡El ID debe estar entre 1 y 826!");
       return;
     }
-    axios(`https://rickandmortyapi.com/api/character/${numericId}`)
+    // axios(`https://rickandmortyapi.com/api/character/${numericId}`)
+    axios(`${baseUrl}/character/${numericId}`)
       .then(({ data }) => {
         if (data.name) {
           const isCharacterAdded = characters.some(
@@ -83,7 +99,6 @@ const App = () => {
     });
   };
 
-  // const is404Page = pathname === PATHROUTES.ERROR;
   const isLoginPage = pathname === PATHROUTES.LOGIN;
 
   return (
@@ -91,9 +106,6 @@ const App = () => {
       {!isLoginPage && access === true && (
         <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
       )}
-      {/* {pathname !== PATHROUTES.LOGIN && (
-        <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
-      )} */}
       <Routes>
         <Route path={PATHROUTES.LOGIN} element={<Login login={login} />} />
         <Route element={<ProtectedRoute canActivate={access} />}>

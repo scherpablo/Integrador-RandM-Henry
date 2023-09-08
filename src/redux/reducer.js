@@ -7,7 +7,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADD_FAV":
       let copy1 = [...state.allCharacters];
-      // let copy1 = [...state.myFavorites];
       copy1.push(payload);
       return {
         ...state,
@@ -32,18 +31,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
     case "ORDER":
       let copy4 = state.allCharacters.sort((a, b) => {
-        if(payload === "A") {
-          return a.id - b.id
-        }else if (payload === "D") {
-          return b.id - a.id
-        }else {
+        if (payload === "A") {
+          return a.id - b.id;
+        } else if (payload === "D") {
+          return b.id - a.id;
+        } else {
           return 0;
         }
-      })
+      });
       return {
         ...state,
         myFavorites: copy4,
-      }
+      };
     default:
       return {
         ...state,

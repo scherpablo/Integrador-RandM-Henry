@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validateEmail, validatePassword } from "../../helpers/Validation";
-import styles from "./Form.module.css";
 import PATHROUTES from "../../helpers/PathRoutes";
+import styles from "./Form.module.css";
 
 const Form = (props) => {
-  // ESTADOS //
   const { login } = props;
   const navigate = useNavigate();
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -18,7 +17,6 @@ const Form = (props) => {
     password: "",
   });
 
-  // FUNCIONES //
   const handleChange = (e) => {
     const property = e.target.name;
     const value = e.target.value;
