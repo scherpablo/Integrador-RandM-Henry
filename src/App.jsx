@@ -19,7 +19,6 @@ const baseUrl = import.meta.env.VITE_BASE_URL
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  // const [access, setAccess] = useState(false);
   const [access, setAccess] = useState(localStorage.getItem("isLoggedIn") === "true");
   const navigate = useNavigate();
 
@@ -34,21 +33,12 @@ const App = () => {
       navigate(PATHROUTES.HOME);
     }
   };
-  // const login = (userData) => {
-  //   if (userData.email === EMAIL && userData.password === PASSWORD) {
-  //     setAccess(true);
-  //     navigate(PATHROUTES.HOME);
-  //   }
-  // };
+
   const logout = () => {
     setAccess(false);
     localStorage.removeItem("isLoggedIn");
     navigate(PATHROUTES.LOGIN);
   };
-  // const logout = () => {
-  //   setAccess(false);
-  //   navigate(PATHROUTES.LOGIN);
-  // };
 
   const onSearch = (id) => {
     if (!/^\d+$/.test(id)) {
@@ -60,7 +50,6 @@ const App = () => {
       window.alert("¡El ID debe estar entre 1 y 826!");
       return;
     }
-    // axios(`https://rickandmortyapi.com/api/character/${numericId}`)
     axios(`${baseUrl}/character/${numericId}`)
       .then(({ data }) => {
         if (data.name) {
@@ -100,10 +89,11 @@ const App = () => {
   };
 
   const isLoginPage = pathname === PATHROUTES.LOGIN;
+  const is404ErrorPage = pathname === PATHROUTES.ERROR;
 
   return (
     <div className="App">
-      {!isLoginPage && access === true && (
+      {(access === true && !is404ErrorPage) && !isLoginPage && (
         <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
       )}
       <Routes>

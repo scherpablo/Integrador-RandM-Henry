@@ -1,25 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import styles from "./Detail.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getCharacterDetail } from "../../redux/actions";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const DetailCharacter = () => {
-  const [character, setCharacter] = useState({});
   const { id } = useParams();
+  const character = useSelector((state) => state.characterDetail);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios(`${baseUrl}/character/${id}`).then(({ data }) => {
-      if (data.name) {
-        setCharacter(data);
-      } else {
-        window.alert("No hay personajes con ese ID");
-      }
-    });
-    return setCharacter({});
+    dispatch(getCharacterDetail(id));
   }, [id]);
-
+  
   return (
     <div className={styles.detailContainer}>
       <div className={styles.descriptionContainer}>

@@ -1,11 +1,14 @@
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_CHARACTER_DETAIL } from "./actionsTypes";
+
 const initialState = {
   myFavorites: [],
   allCharacters: [],
-};
+  characterDetail: {},
+}
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case "ADD_FAV":
+    case ADD_FAV:
       let copy1 = [...state.allCharacters];
       copy1.push(payload);
       return {
@@ -13,7 +16,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         myFavorites: copy1,
         allCharacters: copy1,
       };
-    case "REMOVE_FAV":
+    case REMOVE_FAV:
       let copy2 = state.myFavorites.filter(
         (character) => character.id !== payload
       );
@@ -21,7 +24,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         myFavorites: copy2,
       };
-    case "FILTER":
+    case FILTER:
       let copy3 = state.allCharacters.filter(
         (character) => character.gender === payload
       );
@@ -29,7 +32,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         myFavorites: copy3,
       };
-    case "ORDER":
+    case ORDER:
       let copy4 = state.allCharacters.sort((a, b) => {
         if (payload === "A") {
           return a.id - b.id;
@@ -43,6 +46,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         myFavorites: copy4,
       };
+      case GET_CHARACTER_DETAIL:
+        return {
+          ...state,
+          characterDetail: payload,
+        }
     default:
       return {
         ...state,

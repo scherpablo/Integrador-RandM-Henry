@@ -6,19 +6,17 @@ import PATHROUTES from "../../helpers/PathRoutes.js";
 const Nav = ({ onSearch, onRandomAdd, logout }) => {
   const { pathname } = useLocation();
 
-  const is404 = pathname === PATHROUTES.ERROR;
+  const is404ErrorPAge = pathname === PATHROUTES.ERROR;
 
   return (
     <div className={styles.navContainer}>
-      {
-        !is404 && (
-          <SearchBar
-            onSearch={onSearch}
-            onRandomAdd={onRandomAdd}
-            logout={logout}
-          />
-        )
-      }
+      {!is404ErrorPAge && (
+        <SearchBar
+          onSearch={onSearch}
+          onRandomAdd={onRandomAdd}
+          logout={logout}
+        />
+      )}
     </div>
   );
 };
