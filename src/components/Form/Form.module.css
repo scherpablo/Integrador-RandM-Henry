@@ -1,44 +1,21 @@
 /* FORM */
 .form {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(300px, 1fr);
+  justify-items: center;
   align-items: center;
-  padding: 40px 0px 40px 0;
-  width: auto;
-  height: 90vh;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  .form {
-    flex-direction: column;
-    padding: 0;
-    height: auto;
-  }
-  .divImgForm {
-    order: 2;
-    margin-bottom: -70px ;
-    transform: scale(0.9);
-  }  
-  .containerInputsForm {
-    margin-top: 60px;
-    margin-bottom: -30px;
-  }
-}
-@media (max-width: 480px) {
-  .divImgForm {
-    transform: scale(0.7);
-    margin-bottom: -150px;
-  } 
-  .containerInputsForm {
-    transform: scale(0.8);
-    margin-top: -10px;
-    margin-bottom: -150px;
-  }
+  padding: 10px;
+  min-height: 90vh;
+  width: 100%;
 }
 /* IMAGEN FORM */
+.divImgForm {
+  overflow: hidden;
+}
 .imgForm {
   border-radius: 50%;
-  transform: scale(0.7);
+  width: 400px;
 }
 /* INPUTS Y LABELS FORM */
 .divInputsForm {
@@ -64,6 +41,31 @@
   flex-direction: column;
   padding: 20px;
 }
+/*MEDIAS QUERY */
+@media (max-width: 768px) {
+  .form {
+    grid-template-columns: auto;
+    margin-top: 20px;
+  }
+  .divInputsForm {
+    transform: scale(.9);
+  }
+  .divImgForm {
+    order: 2;
+    transform: scale(.9);
+    margin-top: 15px;
+    margin-bottom: -25px;
+  }
+}
+@media (max-width: 480px) {
+  .divInputsForm {
+    transform: scale(.8);
+  }
+  .divImgForm {
+    transform: scale(.8);
+  }  
+}
+
 /* ERRORES */
 .errorsInput {
   border: 3px solid red;
@@ -106,3 +108,42 @@
 .buttonLoginForm:hover {
   background-color: #17b67688;
 }
+
+
+/* .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px 40px 0;
+  width: auto;
+  height: 90vh;
+  overflow: hidden;
+} */
+/* @media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    grid-template-columns: auto;
+    padding: 0;
+    height: auto;
+  }
+  .divImgForm {
+    order: 2;
+    margin-bottom: -70px ;
+    transform: scale(0.9);
+  }  
+  .containerInputsForm {
+    margin-top: 60px;
+    margin-bottom: -30px;
+  }
+}
+@media (max-width: 480px) {
+  .divImgForm {
+    transform: scale(0.7);
+    margin-bottom: -150px;
+  } 
+  .containerInputsForm {
+    transform: scale(0.8);
+    margin-top: -10px;
+    margin-bottom: -150px;
+  }
+} */
