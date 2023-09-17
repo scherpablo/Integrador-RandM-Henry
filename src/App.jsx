@@ -15,7 +15,7 @@ import Error from "./views/Error.view.jsx";
 //HELPERS
 import PATHROUTES from "./helpers/PathRoutes.js";
 
-const baseUrl = import.meta.env.VITE_BASE_URL
+const localUrl = import.meta.env.VITE_LOCAL_URL
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -46,11 +46,11 @@ const App = () => {
       return;
     }
     const numericId = parseInt(id, 10);
-    if (numericId < 1 || numericId > 826) {
-      window.alert("¡El ID debe estar entre 1 y 826!");
+    if (numericId < 1 || numericId > 5) {
+      window.alert("¡El ID debe estar entre 1 y 5!");
       return;
     }
-    axios(`${baseUrl}/character/${numericId}`)
+    axios( `${localUrl}/character/${numericId}`)
       .then(({ data }) => {
         if (data.name) {
           const isCharacterAdded = characters.some(
