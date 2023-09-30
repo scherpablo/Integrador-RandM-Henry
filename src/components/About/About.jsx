@@ -13,6 +13,7 @@ const AboutText = () => {
           serie, permitiéndote explorar a fondo los detalles de cada personaje
           que ha capturado tu corazón poner a prueba mi cpacidad como
           Desarrollador Web.
+          
         </p>
         <p className={styles.pAbout}>
           A través de la magia de la tecnología y el poder de la programación,

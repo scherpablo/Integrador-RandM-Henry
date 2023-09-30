@@ -9,12 +9,13 @@ const SearchBar = ({ onSearch, onRandomAdd, logout }) => {
   const handleChange = (e) => {
     setId(e.target.value);
   };
-
+  
   const handleSearch = () => {
     onSearch(id);
     setId("");
   };
-
+  
+  
   return (
     <div className={styles.container}>
       <div className={styles.buttonsRow}>

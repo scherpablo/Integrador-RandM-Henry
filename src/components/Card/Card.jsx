@@ -26,10 +26,9 @@ const Card = (props) => {
     removeFav(id);
     dispatch(removeFav(id));
   };
-  
+
   const handleFav = () => {
-    isFav ? removeFav(id) : addFav(props);
-    isFav ? dispatch(removeFav(id)) : dispatch(addFav(props));
+    isFav ? dispatch(removeFav(id)) : dispatch(addFav(props)); // Llamar a la acción directamente con dispatch
     setIsFav(!isFav);
   };
  

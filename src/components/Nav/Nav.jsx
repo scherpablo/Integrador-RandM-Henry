@@ -5,7 +5,7 @@ import PATHROUTES from "../../helpers/PathRoutes.js";
 
 const Nav = ({ onSearch, onRandomAdd, logout }) => {
   const { pathname } = useLocation();
-
+  
   const is404ErrorPAge = pathname === PATHROUTES.ERROR;
 
   return (

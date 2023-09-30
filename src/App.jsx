@@ -27,13 +27,6 @@ const App = () => {
 
   const { pathname } = useLocation();
 
-  // const login = (userData) => {
-  //   if (userData.email === EMAIL && userData.password === PASSWORD) {
-  //     setAccess(true);
-  //     localStorage.setItem("isLoggedIn", "true");
-  //     navigate(PATHROUTES.HOME);
-  //   }
-  // };
   const login = (userData) => {
     const { email, password } = userData;
     // const URL = "http://localhost:3001/rickandmorty/login/";
@@ -93,7 +86,7 @@ const App = () => {
   const onClose = (id) => {
     setCharacters((prevCharacters) => {
       const updatedCharacters = prevCharacters.filter(
-        (character) => character.id !== Number(id)
+        (character) => character.id !== (id)
       );
       return updatedCharacters;
     });

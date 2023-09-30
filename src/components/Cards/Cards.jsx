@@ -17,8 +17,8 @@ const  Cards = (props) => {
           origin={character.origin}
           image={character.image}
           onClose={onClose}
-        />
-      ))}
+          />
+          ))}
     </div>
   );
 }
