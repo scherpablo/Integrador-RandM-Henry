@@ -15,24 +15,35 @@ import Error from "./views/Error.view.jsx";
 //HELPERS
 import PATHROUTES from "./helpers/PathRoutes.js";
 
-const serverUrl = import.meta.env.VITE_SERVER_URL
+const serverUrl = import.meta.env.VITE_SERVER_URL;
+const loginUrl = import.meta.env.VITE_LOGIN_URL;
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(localStorage.getItem("isLoggedIn") === "true");
+  const [access, setAccess] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
-  const EMAIL = "pablo@pablo.com";
-  const PASSWORD = "111111";
 
+  // const login = (userData) => {
+  //   if (userData.email === EMAIL && userData.password === PASSWORD) {
+  //     setAccess(true);
+  //     localStorage.setItem("isLoggedIn", "true");
+  //     navigate(PATHROUTES.HOME);
+  //   }
+  // };
   const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
+    const { email, password } = userData;
+    // const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(loginUrl + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
       setAccess(true);
       localStorage.setItem("isLoggedIn", "true");
-      navigate(PATHROUTES.HOME);
-    }
-  };
+      access && navigate(PATHROUTES.HOME);
+    });
+  }
 
   const logout = () => {
     setAccess(false);
@@ -50,7 +61,7 @@ const App = () => {
       window.alert("¡El ID debe estar entre 1 y 826!");
       return;
     }
-    axios( `${serverUrl}/character/${numericId}`)
+    axios(`${serverUrl}/character/${numericId}`)
       .then(({ data }) => {
         if (data.name) {
           const isCharacterAdded = characters.some(
@@ -93,7 +104,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {(access === true && !is404ErrorPage) && !isLoginPage && (
+      {access === true && !is404ErrorPage && !isLoginPage && (
         <Nav onSearch={onSearch} onRandomAdd={onRandomAdd} logout={logout} />
       )}
       <Routes>
