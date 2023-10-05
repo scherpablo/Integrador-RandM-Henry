@@ -27,16 +27,21 @@ const App = () => {
 
   const { pathname } = useLocation();
 
-  const login = (userData) => {
+  const login = async (userData) => {
     const { email, password } = userData;
-    // const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(loginUrl + `?email=${email}&password=${password}`).then(({ data }) => {
+
+    try {
+      const { data } = await axios(
+        loginUrl + `?email=${email}&password=${password}`
+      );
       const { access } = data;
       setAccess(true);
       localStorage.setItem("isLoggedIn", "true");
       access && navigate(PATHROUTES.HOME);
-    });
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const logout = () => {
     setAccess(false);
@@ -44,7 +49,7 @@ const App = () => {
     navigate(PATHROUTES.LOGIN);
   };
 
-  const onSearch = (id) => {
+  const onSearch = async (id) => {
     if (!/^\d+$/.test(id)) {
       window.alert("¡El ID debe ser un número válido!");
       return;
@@ -54,28 +59,23 @@ const App = () => {
       window.alert("¡El ID debe estar entre 1 y 826!");
       return;
     }
-    axios(`${serverUrl}/character/${numericId}`)
-      .then(({ data }) => {
-        if (data.name) {
-          const isCharacterAdded = characters.some(
-            (character) => character.id === data.id
-          );
-          if (isCharacterAdded) {
-            window.alert("¡Este personaje ya está en la lista!");
-          } else {
-            setCharacters((oldChars) => [...oldChars, data]);
-          }
+    try {
+      const { data } = await axios(`${serverUrl}/character/${numericId}`);
+      if (data.name) {
+        const isCharacterAdded = characters.some(
+          (character) => character.id === data.id
+        );
+        if (isCharacterAdded) {
+          window.alert("¡Este personaje ya está en la lista!");
         } else {
-          window.alert("¡No hay personajes con este ID!");
+          setCharacters((oldChars) => [...oldChars, data]);
         }
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 404) {
-          window.alert("¡No hay personajes con este ID!");
-        } else {
-          console.error("Error en la solicitud:", error);
-        }
-      });
+      } else {
+        window.alert("¡No hay personajes con este ID!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onRandomAdd = () => {
@@ -86,7 +86,7 @@ const App = () => {
   const onClose = (id) => {
     setCharacters((prevCharacters) => {
       const updatedCharacters = prevCharacters.filter(
-        (character) => character.id !== (id)
+        (character) => character.id !== id
       );
       return updatedCharacters;
     });

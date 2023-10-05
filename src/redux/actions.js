@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import axios from "axios";
 import {
   ADD_FAV,
@@ -11,29 +12,33 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const favUrl = import.meta.env.VITE_FAV_URL;
 
 const addFav = (character) => {
-  // const endpoint = "http://localhost:3001/rickandmorty/fav";
-  // const endpoint = favUrl;
-  return (dispatch) => {
-    axios.post(favUrl, character).then(({ data }) => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.post(favUrl, character);
       return dispatch({
         type: ADD_FAV,
         payload: data,
       });
-    });
-  };
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const removeFav = (id) => {
-  // const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
   const endpoint = favUrl + "/" + id;
-  return (dispatch) => {
-    axios.delete(endpoint).then(({ data }) => {
+
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.delete(endpoint);
       return dispatch({
         type: REMOVE_FAV,
         payload: data,
       });
-    });
-  };
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const filterCards = (gender) => {
