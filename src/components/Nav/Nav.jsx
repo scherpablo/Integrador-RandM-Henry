@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import styles from "./Nav.module.css";
 import PATHROUTES from "../../helpers/PathRoutes.js";
 
 const Nav = ({ onSearch, onRandomAdd, logout }) => {
@@ -9,7 +8,7 @@ const Nav = ({ onSearch, onRandomAdd, logout }) => {
   const is404ErrorPAge = pathname === PATHROUTES.ERROR;
 
   return (
-    <div className={styles.navContainer}>
+    <div>
       {!is404ErrorPAge && (
         <SearchBar
           onSearch={onSearch}
