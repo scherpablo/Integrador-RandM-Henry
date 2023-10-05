@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 import axios from "axios";
 import {
   ADD_FAV,
@@ -12,33 +11,33 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const favUrl = import.meta.env.VITE_FAV_URL;
 
 const addFav = (character) => {
-  try {
-    return async (dispatch) => {
+  return async (dispatch) => {
+    try {
       const { data } = await axios.post(favUrl, character);
-      return dispatch({
+      dispatch({
         type: ADD_FAV,
         payload: data,
       });
-    };
-  } catch (error) {
-    console.log(error);
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 };
 
 const removeFav = (id) => {
   const endpoint = favUrl + "/" + id;
 
-  try {
-    return async (dispatch) => {
+  return async (dispatch) => {
+    try {
       const { data } = await axios.delete(endpoint);
-      return dispatch({
+      dispatch({
         type: REMOVE_FAV,
         payload: data,
       });
-    };
-  } catch (error) {
-    console.log(error);
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 };
 
 const filterCards = (gender) => {
